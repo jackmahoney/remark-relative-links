@@ -1,13 +1,13 @@
 const visit = require('unist-util-visit');
 
 module.exports = function (options) {
-  if (!options || !options.domainRegex || !options.replacement) {
-    throw Error('Missing required "domainRegex" or "replacement" option');
+  if (!options || !options.regex) {
+    throw Error('Missing required "regex"');
   }
 
   function visitor(node) {
-    if (options.domainRegex.test(node.url)) {
-      node.url = node.url.replace(options.domainRegex, options.replacement);
+    if (options.regex.test(node.url)) {
+      node.url = node.url.replace(options.regex, options.replacement);
     }
   }
 
