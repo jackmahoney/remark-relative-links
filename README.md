@@ -1,4 +1,6 @@
-# remark-relative-links
+# Fork of remark-relative-link 
+
+> Forked to allow for custom replacements
 
 Rewrites absolute URLs to relative ones with [**remark**](https://remark.js.org/)
 
@@ -20,6 +22,7 @@ const relativeLinks = require('remark-relative-links');
 remark()
   .use(relativeLinks, {
     domainRegex: /http[s]*:\/\/[www.]*yoursite\.com[/]?/,
+    replacement: ''
   })
   .use(html)
   .process('[Blog](https://yoursite.com/blog/article/)', (err, file) => {
